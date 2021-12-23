@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Влад/CLionProjects/laba5/functions.c
+functions.h
+/cygdrive/c/Users/Влад/CLionProjects/laba5/functions.h
+
+/cygdrive/c/Users/Влад/CLionProjects/laba5/functions.h
+functions.c
+/cygdrive/c/Users/Влад/CLionProjects/laba5/functions.c
+
+/cygdrive/c/Users/Влад/CLionProjects/laba5/main.c
+stdio.h
+-
+math.h
+-
+stdbool.h
+-
+stdlib.h
+-
+math.h
+-
+locale.h
+-
+functions.h
+/cygdrive/c/Users/Влад/CLionProjects/laba5/functions.h
+text.h
+/cygdrive/c/Users/Влад/CLionProjects/laba5/text.h
+
+/cygdrive/c/Users/Влад/CLionProjects/laba5/text.c
+text.h
+/cygdrive/c/Users/Влад/CLionProjects/laba5/text.h
+
+/cygdrive/c/Users/Влад/CLionProjects/laba5/text.h
+text.c
+/cygdrive/c/Users/Влад/CLionProjects/laba5/text.c
+
