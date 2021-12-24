@@ -23,8 +23,8 @@ void save_txt(double group, double brigade, double start, double end, double dot
     if (dots > 0) {
         fprintf(myfile_txt, "Группа РС-п%.0lf\n", group);
         fprintf(myfile_txt, "Варіант №%.0lf\n", brigade);
+        fprintf(myfile_txt, "x1=%.0lf  x2=%.0lf количество строк=%.0f\n", start, end, dots);
         head_txt(myfile_txt);
-        fprintf(myfile_txt, "x1=%.0lf  x2=%.0lf количество строк=%d\n", start, end, dots);
         while (start < end && i <= dots) {
             delta = (end - start) / (dots - 1);
             fprintf(myfile_txt, "|");
@@ -40,10 +40,7 @@ void save_txt(double group, double brigade, double start, double end, double dot
         }
         fprintf(myfile_txt,"+---------+---------+---------+\n");
     }
-    if (dots < 0) {
-        printf("Значение точек должно быть равно 0, либо больше 0");
-        create();
-    } else {
+    else {
         fprintf(myfile_txt, "Группа РС-п%.0lf\n", group);
         fprintf(myfile_txt, "Варіант №%.0lf\n", brigade);
         fprintf(myfile_txt, "x1=%.0lf  x2=%.0lf Дельта=%.2lf\n", start, end, step);
@@ -74,8 +71,8 @@ void save_bin(double group, double brigade, double start, double end, double dot
         myfile_bin = fopen(name_bin, "w");
         printf("Группа РС-п%.0lf\n", group);
         printf("Варіант №%.0lf\n", brigade);
+        fprintf(myfile_bin, "x1=%.0lf  x2=%.0lf количество строк=%.0f\n", start, end, dots);
         head_bin(myfile_bin);
-        fprintf(myfile_bin, "x1=%.0lf  x2=%.0lf количество строк=%d\n", start, end, dots);
         while (start < end && i <= dots) {
             delta = (end - start) / (dots - 1);
             fprintf(myfile_bin, "|");
@@ -92,10 +89,7 @@ void save_bin(double group, double brigade, double start, double end, double dot
         fprintf(myfile_bin, "+-------+-----------+---------------+\n");
         fclose(myfile_bin);
     }
-    if (dots < 0) {
-        printf("Значение точек должно быть равно 0, либо больше 0");
-        create();
-    } else {
+    else {
         myfile_bin = fopen(name_bin, "w");
         fprintf(myfile_bin, "Группа РС-п%.0lf\n", group);
         fprintf(myfile_bin, "Варіант №%.0lf\n", brigade);
@@ -133,28 +127,24 @@ void output () {
         save_txt(group, brigade, start, end, dots, step);
     fclose(myfile);
     if (dots > 0) {
-        printf("Группа РС-п%.0lf\n", group);
-        printf("Варіант №%.0lf\n", brigade);
+        printf("x1=%.0lf  x2=%.0lf количество строк=%.0lf\n", start, end, dots);
         head();
-        printf("x1=%.0lf  x2=%.0lf количество строк=%d\n", start, end, dots);
         while (start < end && i <= dots) {
             delta = (end - start) / (dots - 1);
             printf("|");
-            printf("----%d----", i);
+            printf("\t%d\t", i);
             printf("|");
-            printf("%lf", start);
+            printf("\t%.2lf2\t", start);
             start += delta;
             start++;
             printf("|");
-            printf("%lf", funct(start));
+            printf("\t%f\t", funct(start));
             printf("|\n");
             i++;
         }
-        printf("+---------+---------+---------+\n");
+        printf("+-------+-----------+---------------+\n");
     }
-    if (dots < 0) {
-        output();
-    } else {
+    else {
         printf("\n");
         printf("Группа РС-п%.0lf\n", group);
         printf("Варіант №%.0lf\n", brigade);
